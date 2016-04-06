@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>CADASTRO CANDIDATO</title>
+</head>
+
+<h:body>
+
+	<ui:composition template="index.xhtml">
+
+		<ui:define name="content">
+	
+			<div id="formulario">		
+				<form name="meu_form">
+				
+					<h1 id="cc">CADASTRO CANDIDATO</h1>
+					
+					<p class="nome">
+						<label for="nome">Nome:</label><br /> <input type="text"
+							id="nomeid" placeholder="Insira seu nome aqui"
+							required="required" name="nome" />
+
+					</p>
+
+					<p class="fone">
+						<label for="fone">Endereço:</label><br /><input
+							type="text" id="endereco" placeholder="Insira seu endereço"
+							required="required" name="endereco" />
+
+					</p>
+
+					<p>
+						<label for="cpf">CPF:</label><br /> <input type="text"
+							id="cpfnumber" placeholder="Insira aqui seu CPF"
+							required="required" name="cpf" />
+
+					</p>
+
+					<p>
+						<label for="rg">RG:</label><br /><input type="text"
+							id="rgnumber" placeholder="Insira aqui seu RG"
+							required="required" name="rg" />
+
+					</p>
+
+					<p>
+						<label for="rg">Título de votação:</label><br /><input
+							type="text" id="titulonumber"
+							placeholder="Insira aqui o nº do título"
+							required="required" name="titulo" />
+
+					</p>
+
+					<p class="submit">
+						<input type="submit" onClick="Enviar();" value="Enviar" />
+
+					</p>
+
+				</form>
+
+			</div>
+
+		</ui:define>
+
+	</ui:composition>
+
+</h:body>
+</html>
