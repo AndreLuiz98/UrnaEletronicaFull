@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="template.xhtml">
+
+	<ui:define name="title">
+	
+		Apuração Final
+		
+	</ui:define>
+
+	<ui:define name="content">
+
+		<p:dataTable var="apuracao" value="#{ApuracaoBean.apuracao}">
+
+			<p:column headerText="Prefeito Eleito">
+				<h:outputText value="#{apuracao.electedMayor.nome}" />
+			</p:column>
+			<p:column headerText="Governador Eleito">
+				<h:outputText value="#{apuracao.electedGovernor.nome}" />
+			</p:column>
+			<p:column headerText="Presidente Eleito">
+				<h:outputText value="#{apuracao.electedPresident.nome}" />
+			</p:column>
+			<p:column headerText="Votos Totais">
+				<h:outputText value="#{apuracao.quantVotos}" />
+			</p:column>
+			<p:column headerText="Votos Brancos">
+				<h:outputText value="#{apuracao.quantBrancos}" />
+			</p:column>
+			<p:column headerText="Votos Nulos">
+				<h:outputText value="#{apuracao.quantNulos}" />
+			</p:column>
+			
+		</p:dataTable>
+
+	</ui:define>
+</ui:composition>

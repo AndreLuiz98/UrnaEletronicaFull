@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="template.xhtml">
+
+	<ui:define name="title">
+	
+	 Governador
+				
+	</ui:define>
+
+	<ui:define name="content">
+
+		<div id="formulario">
+			<h:form name="meu_form">
+
+				<h1>Governador</h1>
+
+				<p:messages id="messages" showDetail="false" autoUpdate="true"
+					closable="true" style="color:red;margin:8px;" />
+
+				<p class="nome">
+					<label for="nome">Numero Candidato:</label><br />
+					<p:inputText id="nome" type="text"
+						placeholder="Insira o numero aqui" required="true"
+						value="#{VotacaoBean.candidato.numero}" />
+				</p>
+
+				<p class="submit">
+					<p:commandButton value="Votar"
+						actionListener="#{VotacaoBean.Votar}" />
+				</p>
+
+				<p class="submit">
+					<p:commandButton value="Votar Branco"
+						actionListener="#{VotacaoBean.VotoBranco}" />
+				</p>
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>

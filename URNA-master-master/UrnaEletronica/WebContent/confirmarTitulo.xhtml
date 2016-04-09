@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="template.xhtml">
+
+	<ui:define name="title">
+	
+		Confirmar Título
+				
+	</ui:define>
+	<ui:define name="content">
+		<div id="formulario">
+			<h:form name="meu_form">
+				<p:messages id="messages" showDetail="false" autoUpdate="true"
+					closable="true" style="color:red;margin:8px;" />
+				<p>
+					<label for="rg">Título de votação:</label><br />
+					<p:inputText id="tituloVotacao" type="text"
+						placeholder="Insira seu Titulo de Eleitor aqui" required="true"
+						value="#{VotacaoBean.eleitor.tituloVotacao}" />
+
+				</p>
+				<p class="submit">
+					<p:commandButton value="Verificar"
+						actionListener="#{VotacaoBean.ValidacaoEleitor}" />
+				</p>
+			</h:form>
+		</div>
+	</ui:define>
+
+</ui:composition>

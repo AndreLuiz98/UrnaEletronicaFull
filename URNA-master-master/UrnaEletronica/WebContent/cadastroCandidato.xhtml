@@ -1,73 +1,87 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="template.xhtml">
 
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>CADASTRO CANDIDATO</title>
-</head>
-
-<h:body>
-
-	<ui:composition template="index.xhtml">
-
-		<ui:define name="content">
+	<ui:define name="title">
 	
-			<div id="formulario">		
-				<form name="meu_form">
-				
-					<h1 id="cc">CADASTRO CANDIDATO</h1>
-					
-					<p class="nome">
-						<label for="nome">Nome:</label><br /> <input type="text"
-							id="nomeid" placeholder="Insira seu nome aqui"
-							required="required" name="nome" />
+		Cadastro do Candidato
+		
+	</ui:define>
 
-					</p>
+	<ui:define name="content">
 
-					<p class="fone">
-						<label for="fone">Endereço:</label><br /><input
-							type="text" id="endereco" placeholder="Insira seu endereço"
-							required="required" name="endereco" />
+		<div id="formulario">
+			<h:form name="meu_form">
 
-					</p>
+				<h1>CADASTRO CANDIDATO</h1>
 
-					<p>
-						<label for="cpf">CPF:</label><br /> <input type="text"
-							id="cpfnumber" placeholder="Insira aqui seu CPF"
-							required="required" name="cpf" />
+				<p:messages id="messages" showDetail="false" autoUpdate="true"
+					closable="true" style="color:red;margin:8px;" />
 
-					</p>
+				<p class="nome">
+					<label for="nome">Nome:</label><br />
+					<p:inputText id="nome" type="text"
+						placeholder="Insira seu nome aqui" required="true"
+						value="#{candidatoBean.candidato.nome}" />
 
-					<p>
-						<label for="rg">RG:</label><br /><input type="text"
-							id="rgnumber" placeholder="Insira aqui seu RG"
-							required="required" name="rg" />
+				</p>
 
-					</p>
+				<p class="fone">
+					<label for="fone">Endereço:</label><br />
+					<p:inputText id="endereco" type="text"
+						placeholder="Insira seu endereco aqui" required="true"
+						value="#{candidatoBean.candidato.endereco}" />
 
-					<p>
-						<label for="rg">Título de votação:</label><br /><input
-							type="text" id="titulonumber"
-							placeholder="Insira aqui o nº do título"
-							required="required" name="titulo" />
+				</p>
 
-					</p>
+				<p>
+					<label for="cpf">CPF:</label><br />
+					<p:inputText id="cpf" type="text" placeholder="Insira seu CPF aqui"
+						required="true" value="#{candidatoBean.candidato.cpf}" />
 
-					<p class="submit">
-						<input type="submit" onClick="Enviar();" value="Enviar" />
+				</p>
 
-					</p>
+				<p>
+					<label for="rg">RG:</label><br />
+					<p:inputText id="rg" type="text" placeholder="Insira seu RG aqui"
+						required="true" value="#{candidatoBean.candidato.RG}" />
 
-				</form>
+				</p>
 
-			</div>
+				<p>
+					<label for="titulo">Título de votação:</label><br />
+					<p:inputText id="tituloVotacao" type="text"
+						placeholder="Insira seu Titulo de Eleitor aqui" required="true"
+						value="#{candidatoBean.candidato.tituloVotacao}" />
+						
+				</p>
+				<p>
+					<label for="numero">Numero:</label><br />
+					<p:inputText id="numero" type="text"
+						placeholder="Insira sua Seção aqui" required="true"
+						value="#{candidatoBean.candidato.numero}" />
 
-		</ui:define>
+				</p>
+				<p>
+					<label for="numero">Cargo:</label><br />
+					<p:inputText id="cargo" type="text"
+						placeholder="Insira sua Cargo aqui" required="true"
+						value="#{candidatoBean.candidato.cargo}" />
 
-	</ui:composition>
+				</p>
 
-</h:body>
-</html>
+				<p class="submit">
+					<p:commandButton value="Cadastrar"
+						actionListener="#{candidatoBean.inserir}" />
+				</p>
+
+			</h:form>
+
+		</div>
+
+	</ui:define>
+
+</ui:composition>
