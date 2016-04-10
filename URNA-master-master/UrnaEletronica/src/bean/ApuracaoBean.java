@@ -24,57 +24,67 @@ public class ApuracaoBean {
 	}
 
 	public void ApuracaoFinal() throws IOException{
-
+		System.out.println("Olha eu aqui");
 		CandidatoDAO candidatoDAO = new CandidatoDAO();
 		VotoDAO votoDAO = new VotoDAO();
 
 		apuracao.setQuantVotos(votoDAO.getAll().size());
 
-		List<Candidato> candidatos = candidatoDAO.getAll();
+		List<Candidato> candidatos = candidatoDAO.getAllCandidatos();
 
-		for(Candidato candidato : candidatos){
+		for(Candidato candidatoDynamic : candidatos){
 
-			switch (candidato.getCargo()) {
+			switch (candidatoDynamic.getCargo()) {
 
 			case "Prefeito":
 
-				candidato.setNumeroVotos(votoDAO.getVotosCandidato(candidato.getNumero(),candidato.getCargo()));
+				candidatoDynamic.setNumeroVotos(votoDAO.getVotosCandidato(candidatoDynamic.getNumero(), candidatoDynamic.getCargo()));
 
-				if(apuracao.getMayorVoted()== null)
-					apuracao.setMayorVoted(candidato);
+				if(apuracao.getMayorVoted() == null){
 
-				else if(apuracao.getMayorVoted().getNumeroVotos() < candidato.getNumeroVotos()){
-					apuracao.setElectedMayor(candidato);
+					apuracao.setMayorVoted(candidatoDynamic);
+
+				}else if(apuracao.getMayorVoted().getNumeroVotos() < candidatoDynamic.getNumeroVotos()){
+
+					apuracao.setElectedMayor(candidatoDynamic);
+
 				}
 
+				System.out.println("Olha eu aqui");
 				break;
 
 			case "Governador":
 
-				candidato.setNumeroVotos(votoDAO.getVotosCandidato(candidato.getNumero(),candidato.getCargo()));
+				candidatoDynamic.setNumeroVotos(votoDAO.getVotosCandidato(candidatoDynamic.getNumero(),candidatoDynamic.getCargo()));
 
-				if(apuracao.getGovernorVoted()== null)
-					apuracao.setElectedGovernor(candidato);
+				if(apuracao.getGovernorVoted() == null){
 
-				else if(apuracao.getElectedGovernor().getNumeroVotos() < candidato.getNumeroVotos()){
-					apuracao.setElectedGovernor(candidato);
+					apuracao.setGovernorVoted(candidatoDynamic);
+
+				}else if(apuracao.getGovernorVoted().getNumeroVotos() < candidatoDynamic.getNumeroVotos()){
+
+					apuracao.setElectedGovernor(candidatoDynamic);
 
 				}
 
+				System.out.println("Olha eu aqui");
 				break;
 
 			case "Presidente":
 
-				candidato.setNumeroVotos(votoDAO.getVotosCandidato(candidato.getNumero(),candidato.getCargo()));
+				candidatoDynamic.setNumeroVotos(votoDAO.getVotosCandidato(candidatoDynamic.getNumero(),candidatoDynamic.getCargo()));
+					
+				if(apuracao.getPresidentVoted() == null){
 
-				if(apuracao.getPresidentVoted()== null)
-					apuracao.setElectedPresident(candidato);
+					apuracao.setPresidentVoted(candidatoDynamic);
 
-				else if(apuracao.getPresidentVoted().getNumeroVotos() < candidato.getNumeroVotos()){
-					apuracao.setElectedPresident(candidato);
+				}else if(apuracao.getPresidentVoted().getNumeroVotos() < candidatoDynamic.getNumeroVotos()){
+
+					apuracao.setElectedPresident(candidatoDynamic);
 
 				}
 
+				System.out.println("Olha eu aqui");
 				break;
 
 			default:
@@ -83,15 +93,18 @@ public class ApuracaoBean {
 			}
 
 		}
-		
-		apuracao.setElectedMayor(apuracao.getGovernorVoted());
+
+		apuracao.setElectedMayor(apuracao.getMayorVoted());
 		apuracao.setElectedGovernor(apuracao.getGovernorVoted());
 		apuracao.setElectedPresident(apuracao.getPresidentVoted());
 		apuracao.setQuantBrancos(votoDAO.getVotosEmBranco());
 		apuracao.setQuantVotos(votoDAO.getAll().size());
-		
-		FacesContext.getCurrentInstance().getExternalContext().redirect("apuracaoFinal.xhtml"); 	
 
+		FacesContext.getCurrentInstance().getExternalContext().redirect("apuracaoFinal.xhtml"); 	
+		System.out.println(apuracao.getMayorVoted());
+		System.out.println(apuracao.getGovernorVoted());
+		System.out.println(apuracao.getPresidentVoted());
+		System.out.println("aquiPOSADASJDHS");
 	}
 
 	public Apuracao getApuracao() {

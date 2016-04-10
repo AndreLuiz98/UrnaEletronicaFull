@@ -77,60 +77,90 @@ public class CandidatoDAO extends GenericDAO<Integer, Candidato>{
 
 		return candidato;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public List <Candidato> getAll() {
-		
+
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		
+
 		List <Candidato> candidatos = null;
 		String candidato = "Candidato";
-		
+
 		try {
-			
+
 			String hql = "from Pessoa where DTYPE = :candidato";
-			
+
 			Query query = session.createQuery(hql);
 			query.setParameter("candidato", candidato);
-			
+
 			candidatos = (List<Candidato>) query.list();
-	        
+
 		} catch (HibernateException hibernateException) {
-			
+
 			session.getTransaction().rollback();
-			
+
 		} finally {
-		
+
 			session.close();
 		}
-		
+
 		return candidatos;
 	}
-public Candidato getByNumero(int numero) {
-		
+	public Candidato getByNumero(int numero) {
+
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		
+
 		Candidato candidato = null;
-		
+
 		try {
-			
+
 			String hql = "from Candidato where numero = :numero";
-			
+
 			Query query = session.createQuery(hql);
 			query.setParameter("numero", numero);
-			
+
 			candidato = (Candidato) query.uniqueResult();
-	        
+
 		} catch (HibernateException hibernateException) {
-			
+
 			session.getTransaction().rollback();
-			
+
 		} finally {
-		
+
 			session.close();
 		}
-		
+
 		return candidato;
+	}
+	@SuppressWarnings("unchecked")
+	public List <Candidato> getAllCandidatos() {
+
+		Session session = HibernateUtil.getSessionFactory().openSession();
+
+		List <Candidato> candidatos = null;
+		String candidato = "Candidato";
+
+		try {
+
+			String hql = "from Pessoa where DTYPE = :candidato";
+
+			Query query = session.createQuery(hql);
+			query.setParameter("candidato", candidato);
+
+			candidatos = (List<Candidato>) query.list();
+
+		} catch (HibernateException hibernateException) {
+
+			session.getTransaction().rollback();
+
+		} finally {
+
+			session.close();
+
+		}
+
+		return candidatos;
+
 	}
 
 }

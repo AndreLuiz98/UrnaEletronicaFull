@@ -25,7 +25,7 @@
 					<label for="nome">Numero Candidato:</label><br />
 					<p:inputText id="nome" type="text"
 						placeholder="Insira o numero aqui" required="true"
-						value="#{VotacaoBean.candidato.numero}" />
+						value="#{VotacaoBean.voto.votoCandidato}" />
 				</p>
 
 				<p class="submit">
@@ -35,7 +35,7 @@
 
 				<p class="submit">
 					<p:commandButton value="Votar Branco"
-						actionListener="#{VotacaoBean.VotoBranco}" />
+						actionListener="#{VotacaoBean.VotarBranco}" />
 				</p>
 			</h:form>
 		</div>

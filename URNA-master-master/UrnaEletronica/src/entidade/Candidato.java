@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @NamedQuery(name="Candidato.getAll", query=" from Candidato")
 public class Candidato extends Pessoa{
 	
-	@Column(name="numero")
+	@Column(name="numero", unique = true)
 	private Integer numero;
 	
 	@Column(name = "cargo")

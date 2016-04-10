@@ -15,13 +15,13 @@
 
 		<p:dataTable var="apuracao" value="#{ApuracaoBean.apuracao}">
 
-			<p:column headerText="Prefeito Eleito">
+			<p:column headerText="Prefeito">
 				<h:outputText value="#{apuracao.electedMayor.nome}" />
 			</p:column>
-			<p:column headerText="Governador Eleito">
+			<p:column headerText="Governador">
 				<h:outputText value="#{apuracao.electedGovernor.nome}" />
 			</p:column>
-			<p:column headerText="Presidente Eleito">
+			<p:column headerText="Presidente">
 				<h:outputText value="#{apuracao.electedPresident.nome}" />
 			</p:column>
 			<p:column headerText="Votos Totais">
@@ -30,10 +30,6 @@
 			<p:column headerText="Votos Brancos">
 				<h:outputText value="#{apuracao.quantBrancos}" />
 			</p:column>
-			<p:column headerText="Votos Nulos">
-				<h:outputText value="#{apuracao.quantNulos}" />
-			</p:column>
-			
 		</p:dataTable>
 
 	</ui:define>

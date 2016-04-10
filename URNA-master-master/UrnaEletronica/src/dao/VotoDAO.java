@@ -115,7 +115,7 @@ public class VotoDAO extends GenericDAO<Integer, Voto>{
 
 		try {
 
-			String hql = "from Voto where voto = :numero and cargo = :cargo";
+			String hql = "from Voto where voto_candidato = :numero and cargo_candidato = :cargo";
 
 			Query query = session.createQuery(hql);
 			query.setParameter("numero", numero);
@@ -146,7 +146,7 @@ public class VotoDAO extends GenericDAO<Integer, Voto>{
 
 		try {
 
-			String hql = "from Voto where votoCandidato = :numero";
+			String hql = "from Voto where voto_candidato = :numero";
 
 			Query query = session.createQuery(hql);
 			query.setParameter("numero", 0);

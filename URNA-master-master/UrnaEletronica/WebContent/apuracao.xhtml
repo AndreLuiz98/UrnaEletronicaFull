@@ -7,37 +7,22 @@
 
 	<ui:define name="title">
 	
-	 Prefeito
+		Confirmar Título
 				
 	</ui:define>
-
 	<ui:define name="content">
-
 		<div id="formulario">
 			<h:form name="meu_form">
-			
-				<h1>Prefeito</h1>
-				
 				<p:messages id="messages" showDetail="false" autoUpdate="true"
 					closable="true" style="color:red;margin:8px;" />
-
-				<p class="nome">
-					<label for="nome">Numero Candidato:</label><br />
-					<p:inputText id="nome" type="text"
-						placeholder="Insira o numero aqui" required="true"
-						value="#{VotacaoBean.voto.votoCandidato}" />
-				</p>
-				
+				<h2>Você pode ver o resultado da eleição clicando no botão
+					abaixo</h2>
 				<p class="submit">
-					<p:commandButton value="Votar"
-						actionListener="#{VotacaoBean.Votar}" />
-				</p>
-				
-				<p class="submit">
-					<p:commandButton value="Votar Branco"
-						actionListener="#{VotacaoBean.VotarBranco}" />
+					<p:commandButton value="Verificar"
+						actionListener="#{ApuracaoBean.ApuracaoFinal}" />
 				</p>
 			</h:form>
 		</div>
 	</ui:define>
+
 </ui:composition>

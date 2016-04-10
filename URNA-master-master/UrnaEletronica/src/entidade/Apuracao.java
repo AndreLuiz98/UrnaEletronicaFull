@@ -4,7 +4,7 @@ public class Apuracao {
 
 	private int id;
 
-	private int quantVotos, quantBrancos, quantNulos;
+	private int quantVotos, quantBrancos;
 
 	private Candidato mayorVoted, governorVoted, presidentVoted;
 
@@ -32,14 +32,6 @@ public class Apuracao {
 
 	public void setQuantBrancos(int quantBrancos) {
 		this.quantBrancos = quantBrancos;
-	}
-
-	public int getQuantNulos() {
-		return quantNulos;
-	}
-
-	public void setQuantNulos(int quantNulos) {
-		this.quantNulos = quantNulos;
 	}
 
 	public Candidato getMayorVoted() {

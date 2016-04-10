@@ -121,7 +121,7 @@ public class VotacaoBean {
 		votoDAO.insert(voto);
 	}
 
-	public void votarBranco() throws IOException{
+	public void VotarBranco() throws IOException{
 		
 		Date data = new Date();
 		
